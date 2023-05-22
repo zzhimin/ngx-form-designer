@@ -327,29 +327,6 @@ export const formFields: IFormFields[] = [
             {
                 value: '',
                 customKey: '',
-                zh: '仪表板选择',
-                layout: 12,
-                subWidth: 200,
-                hidden: false,
-                relation: '',
-                label: {
-                    name: '仪表板',
-                    layout: 6,
-                    require: true,
-                    isColon: false,
-                },
-                control: {
-                    layout: 14,
-                },
-                templateOptions: {
-                    key: 'dashboard-select',
-                    disable: false,
-                    require: true,
-                }
-            },
-            {
-                value: '',
-                customKey: '',
                 zh: '图片',
                 layout: 12,
                 subWidth: 200,
