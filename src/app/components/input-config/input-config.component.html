@@ -1,0 +1,94 @@
+<div class="input-config">
+  <layout-config [layoutConfig]="inputConf"></layout-config>
+  <label-config [labelConfig]="inputConf"></label-config>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段标识：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="text" nz-input [ngModel]="inputConf.customKey"  (ngModelChange)="customKeyChange($event)" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;" *ngIf="isSub">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段宽度：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="number" nz-input [(ngModel)]="inputConf.subWidth" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">类型：</div>
+      <div nz-col nzSpan="18">
+        <nz-select [(ngModel)]="inputConf.templateOptions.type" style="width: 200px;">
+          <nz-option nzValue="text" nzLabel="文本"></nz-option>
+          <nz-option nzValue="number" nzLabel="数字"></nz-option>
+          <nz-option nzValue="password" nzLabel="密码框"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">禁用：</div>
+      <div nz-col nzSpan="18">
+        <nz-switch [(ngModel)]="inputConf.templateOptions.disable" (ngModelChange)="disableChange($event)"></nz-switch>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">最小长度：</div>
+      <div nz-col nzSpan="6">
+        <nz-input-number [(ngModel)]="inputConf.templateOptions.minLength" [nzMin]="1" [nzMax]="24" [nzStep]="1"></nz-input-number>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">最大长度：</div>
+      <div nz-col nzSpan="6">
+        <nz-input-number [(ngModel)]="inputConf.templateOptions.maxLength" [nzMin]="1" [nzMax]="24" [nzStep]="1"></nz-input-number>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">输入提示：</div>
+      <div nz-col nzSpan="18">
+        <input type="text" nz-input [(ngModel)]="inputConf.templateOptions.placeholder" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">输入框大小：</div>
+      <div nz-col nzSpan="14">
+        <nz-select [(ngModel)]="inputConf.templateOptions.size" style="width: 100%;">
+          <nz-option nzValue="small" nzLabel="较小"></nz-option>
+          <nz-option nzValue="default" nzLabel="默认"></nz-option>
+          <nz-option nzValue="large" nzLabel="较大"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">数据联动：</div>
+      <div nz-col nzSpan="14">
+        <button nz-button nzType="default" style="width: 100%;" (click)="editJS()">脚本编辑</button>
+      </div>
+    </div>
+  </div>
+
+</div>

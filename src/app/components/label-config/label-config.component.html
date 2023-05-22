@@ -1,0 +1,29 @@
+<div class="label-config">
+  <fieldset class="init-settings-wraper">
+    <legend style="display: inline;font-size: 16px;width: auto;">名称配置</legend>
+
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="24">
+        <nz-input-group nzAddOnBefore="字段名称:">
+          <input type="text" nz-input [(ngModel)]="labelConfig.label.name" (ngModelChange)="labelChange.nameChange()" />
+        </nz-input-group>
+      </div>
+    </div>
+
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="8">是否必填：</div>
+      <div nz-col nzSpan="6">
+          <nz-switch [(ngModel)]="labelConfig.label.require" (ngModelChange)="labelChange.requireChange()"></nz-switch>
+      </div>
+      <div nz-col nzSpan="10" style="color: #6D6875;">注：仅影响样式</div>
+    </div>
+
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="8">冒号：</div>
+      <div nz-col nzSpan="6">
+          <nz-switch [(ngModel)]="labelConfig.label.isColon" (ngModelChange)="labelChange.isColonChange()"></nz-switch>
+      </div>
+    </div>
+
+  </fieldset>
+</div>

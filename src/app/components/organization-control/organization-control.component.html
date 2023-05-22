@@ -1,0 +1,14 @@
+<form nz-form [formGroup]="form">
+  <nz-form-item>
+    <nz-form-label 
+      [nzSm]="field.label.layout" 
+      [nzXs]="24" 
+      [nzFor]="field.key" 
+      [nzRequired]="field.label.require"
+      [nzNoColon]="field.label.isColon"
+      >{{field.label.name}}</nz-form-label>
+    <nz-form-control [nzSm]="field.control.layout" [nzXs]="24">
+      <bk-organization-select [formControlName]="field.key"></bk-organization-select>
+    </nz-form-control>
+  </nz-form-item>
+</form>

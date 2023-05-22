@@ -1,0 +1,15 @@
+<form nz-form [formGroup]="validateForm">
+  <nz-select 
+    formControlName="value"
+    [nzSize]="field.templateOptions.size"
+    [nzAllowClear]="field.templateOptions.allowClear"
+    [nzPlaceHolder]="field.templateOptions.placeholder"
+    [nzMode]="field.templateOptions.mode"
+    [nzShowSearch]="field.templateOptions.nzShowSearch"
+    [nzShowArrow]="field.templateOptions.nzShowArrow"
+    >
+    <ng-container *ngFor="let opt of field.templateOptions.options">
+      <nz-option [nzValue]="opt.value" [nzLabel]="opt.label"></nz-option>
+    </ng-container>
+  </nz-select>
+</form>

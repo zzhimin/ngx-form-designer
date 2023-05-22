@@ -1,0 +1,9 @@
+<form nz-form [formGroup]="validateForm">
+  <input
+    nz-input 
+    formControlName="value" 
+    attr.id="value" 
+    [nzSize]="field.templateOptions.size"
+    [attr.type]="field.templateOptions.type"
+    [placeholder]="field.templateOptions.placeholder" />
+</form>

@@ -1,0 +1,22 @@
+<div class="form-renderer-wraper" [style.background]="formSchema.background">
+  <div class="form-name"
+    [style.height]="formSchema.nameHeight + 'px'"
+    [style.line-height]="formSchema.nameHeight + 'px'"
+    >{{ formSchema.name }}</div>
+  <div class="form-content" [style.width]="formSchema.width">
+    <form nz-form [formGroup]="validateForm" [nzLayout]="formSchema.layout">
+      <div nz-row nzAlign="middle" [nzGutter]="formSchema.gutter">
+        <div 
+          nz-col 
+          *ngFor="let field of formSchema.fields"
+          [nzSpan]="field.layout" 
+        >
+
+          <field-wraper [form]="validateForm" [field]="field" [isPreview]="true"></field-wraper>
+         
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

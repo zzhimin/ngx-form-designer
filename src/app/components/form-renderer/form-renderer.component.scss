@@ -1,0 +1,19 @@
+:host {
+  .form-renderer-wraper {
+    padding: 10px;
+    min-height: 100%;
+    .form-name {
+      width: 100%;
+      text-align: center;
+      padding: 0 auto 20px;
+      font-size: 24px;
+    }
+    .form-content {
+      height: calc(100% - 80px);
+      padding: 5px;
+      .hover:hover {
+        border: 1px dashed #0db3a6;
+      }
+    }
+  }
+}

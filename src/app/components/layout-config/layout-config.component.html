@@ -1,0 +1,36 @@
+<div class="layout-config">
+  <fieldset class="init-settings-wraper">
+    <legend style="display: inline;font-size: 16px;width: auto;">布局</legend>
+    <div style="color: #6D6875; margin-bottom: 5px;">总栅格数为24等分</div>
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="24">
+        <nz-input-group nzAddOnBefore="字段所占栅格数:">
+          <nz-input-number 
+            [(ngModel)]="layoutConfig.layout" [nzMin]="1" [nzMax]="24" [nzStep]="1" 
+            (ngModelChange)="layoutChange.fieldChange()"></nz-input-number>
+        </nz-input-group>
+      </div>
+    </div>
+
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="24">
+        <nz-input-group nzAddOnBefore="label所占栅格数:">
+          <nz-input-number 
+            [(ngModel)]="layoutConfig.label.layout" [nzMin]="1" [nzMax]="24" [nzStep]="1" 
+            (ngModelChange)="layoutChange.labelChange()"></nz-input-number>
+        </nz-input-group>
+      </div>
+    </div>
+
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="24">
+        <nz-input-group nzAddOnBefore="control所占栅格数:">
+          <nz-input-number 
+            [(ngModel)]="layoutConfig.control.layout" [nzMin]="1" [nzMax]="24" [nzStep]="1" 
+            (ngModelChange)="layoutChange.controlChange()"></nz-input-number>
+        </nz-input-group>
+      </div>
+    </div>
+
+  </fieldset>
+</div>

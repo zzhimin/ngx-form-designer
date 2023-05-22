@@ -1,0 +1,27 @@
+<div class="preview-wraper">
+  <div class="opt-wraper">
+    <nz-radio-group [(ngModel)]="optType" nzButtonStyle="solid" (ngModelChange)="optChange($event)">
+      <label nz-radio-button nzValue="A">pc端</label>
+      <label nz-radio-button nzValue="B">移动端</label>
+      <label nz-radio-button nzValue="C">表单数据</label>
+      <label nz-radio-button nzValue="D">表单json</label>
+    </nz-radio-group>
+  </div>
+  <ng-container [ngSwitch]="isPc">
+    <ng-container *ngSwitchCase="true">
+      <div class="pc-content">
+        <form-renderer [formSchema]="pcFormSchema" #pc></form-renderer>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="false">
+      <div class="mobile-content">
+        <form-renderer [formSchema]="mobileFormSchema" #mobile></form-renderer>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #tplFormJsonContent let-params>
+  <pre>{{ params.formData }}</pre>
+</ng-template>

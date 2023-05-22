@@ -1,0 +1,57 @@
+<div class="field-config">
+  <ng-container [ngSwitch]="activeField?.templateOptions.key">
+      
+    <ng-container *ngSwitchCase="'input'">
+      <input-config [activeField]="activeField" [validateForm]="validateForm"></input-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'textarea'">
+      <textarea-config [activeField]="activeField" [validateForm]="validateForm"></textarea-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'radio'">
+      <radio-config [activeField]="activeField" [validateForm]="validateForm"></radio-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'checkbox'">
+      <checkbox-config [activeField]="activeField" [validateForm]="validateForm"></checkbox-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'switch'">
+      <switch-config [activeField]="activeField" [validateForm]="validateForm"></switch-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'select'">
+      <select-config [activeField]="activeField" [validateForm]="validateForm"></select-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'datetime'">
+      <datetime-config [activeField]="activeField" [validateForm]="validateForm"></datetime-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'text'">
+      <text-config [activeField]="activeField"></text-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'divider'">
+      <divider-config [activeField]="activeField"></divider-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'subform'">
+      <subform-config [activeField]="activeField" [validateForm]="validateForm"></subform-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'organization'">
+      <organization-config [activeField]="activeField" [validateForm]="validateForm"></organization-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'dashboard-select'">
+      <dashboard-select-config [activeField]="activeField" [validateForm]="validateForm"></dashboard-select-config>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'image-upload'">
+      <image-upload-config [activeField]="activeField" [validateForm]="validateForm"></image-upload-config>
+    </ng-container>
+
+  </ng-container>
+</div>

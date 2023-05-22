@@ -1,0 +1,80 @@
+<div class="config">
+  <layout-config [layoutConfig]="fieldConf"></layout-config>
+  <label-config [labelConfig]="fieldConf"></label-config>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段标识：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="text" nz-input [ngModel]="fieldConf.customKey"  (ngModelChange)="customKeyChange($event)" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;" *ngIf="isSub">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段宽度：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="number" nz-input [(ngModel)]="fieldConf.subWidth" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">类型：</div>
+      <div nz-col nzSpan="14">
+        <nz-select [(ngModel)]="fieldConf.templateOptions.type" style="width: 100%;">
+          <nz-option nzValue="time" nzLabel="时间选择器"></nz-option>
+          <nz-option nzValue="range" nzLabel="范围选择器"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">大小：</div>
+      <div nz-col nzSpan="14">
+        <nz-select [(ngModel)]="fieldConf.templateOptions.size" style="width: 100%;">
+          <nz-option nzValue="default" nzLabel="默认"></nz-option>
+          <nz-option nzValue="small" nzLabel="较小"></nz-option>
+          <nz-option nzValue="large" nzLabel="较大"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">模式：</div>
+      <div nz-col nzSpan="14">
+        <nz-select [(ngModel)]="fieldConf.templateOptions.mode" style="width: 100%;">
+          <nz-option nzValue="date" nzLabel="日期"></nz-option>
+          <nz-option nzValue="week" nzLabel="周"></nz-option>
+          <nz-option nzValue="month" nzLabel="月"></nz-option>
+          <nz-option nzValue="year" nzLabel="年"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="9">时间选择功能：</div>
+      <div nz-col nzSpan="15">
+        <nz-switch [(ngModel)]="fieldConf.templateOptions.showTime"></nz-switch>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">数据联动：</div>
+      <div nz-col nzSpan="14">
+        <button nz-button nzType="default" style="width: 100%;" (click)="editJS()">脚本编辑</button>
+      </div>
+    </div>
+  </div>
+
+</div>

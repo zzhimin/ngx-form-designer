@@ -1,0 +1,12 @@
+:host {
+  .sub-content {
+    // background: #e6f7ff;
+    // border: 1px solid #91d5ff;
+    // border-radius: 4px;
+    overflow-x: auto;
+    .sub-item {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<form nz-form [formGroup]="validateForm">
+  <nz-switch 
+    formControlName="value" 
+    [nzCheckedChildren]="field.templateOptions.nzCheckedChildren"
+    [nzUnCheckedChildren]="field.templateOptions.nzUnCheckedChildren"
+    [nzSize]="field.templateOptions.size"></nz-switch>
+</form>

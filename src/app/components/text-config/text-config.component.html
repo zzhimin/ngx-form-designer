@@ -1,0 +1,14 @@
+<div class="config">
+  <layout-config [layoutConfig]="fieldConf"></layout-config>
+  <label-config [labelConfig]="fieldConf"></label-config>
+  
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">内容：</div>
+      <div nz-col nzSpan="18">
+        <input type="text" nz-input [(ngModel)]="fieldConf.templateOptions.content" />
+      </div>
+    </div>
+  </div>
+
+</div>

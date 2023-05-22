@@ -1,0 +1,71 @@
+<div class="config">
+  <layout-config [layoutConfig]="fieldConf"></layout-config>
+  <label-config [labelConfig]="fieldConf"></label-config>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段标识：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="text" nz-input [ngModel]="fieldConf.customKey"  (ngModelChange)="customKeyChange($event)" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;" *ngIf="isSub">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段宽度：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="number" nz-input [(ngModel)]="fieldConf.subWidth" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">禁用：</div>
+      <div nz-col nzSpan="18">
+        <nz-switch [(ngModel)]="fieldConf.templateOptions.disable" (ngModelChange)="disableChange($event)"></nz-switch>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">开关大小：</div>
+      <div nz-col nzSpan="14">
+        <nz-select [(ngModel)]="fieldConf.templateOptions.size" style="width: 100%;">
+          <nz-option nzValue="default" nzLabel="默认"></nz-option>
+          <nz-option nzValue="small" nzLabel="较小"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">选中时的内容：</div>
+      <div nz-col nzSpan="18">
+        <input type="text" nz-input [(ngModel)]="fieldConf.templateOptions.nzCheckedChildren" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">非选中时的内容：</div>
+      <div nz-col nzSpan="18">
+        <input type="text" nz-input [(ngModel)]="fieldConf.templateOptions.nzUnCheckedChildren" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">数据联动：</div>
+      <div nz-col nzSpan="14">
+        <button nz-button nzType="default" style="width: 100%;" (click)="editJS()">脚本编辑</button>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="config">
+  <layout-config [layoutConfig]="fieldConf"></layout-config>
+  <label-config [labelConfig]="fieldConf"></label-config>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段标识：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="text" nz-input [ngModel]="fieldConf.customKey"  (ngModelChange)="customKeyChange($event)" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;" *ngIf="isSub">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段宽度：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="number" nz-input [(ngModel)]="fieldConf.subWidth" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="24">上传地址：</div>
+      <div nz-col nzSpan="24">
+        <input nz-input [(ngModel)]="fieldConf.templateOptions.uploadUrl" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">数据联动：</div>
+      <div nz-col nzSpan="14">
+        <button nz-button nzType="default" style="width: 100%;" (click)="editJS()">脚本编辑</button>
+      </div>
+    </div>
+  </div>
+
+</div>

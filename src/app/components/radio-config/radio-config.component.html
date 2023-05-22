@@ -1,0 +1,61 @@
+<div class="config">
+  <layout-config [layoutConfig]="fieldConf"></layout-config>
+  <label-config [labelConfig]="fieldConf"></label-config>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段标识：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="text" nz-input [ngModel]="fieldConf.customKey"  (ngModelChange)="customKeyChange($event)" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;" *ngIf="isSub">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段宽度：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="number" nz-input [(ngModel)]="fieldConf.subWidth" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">禁用：</div>
+      <div nz-col nzSpan="18">
+        <nz-switch [(ngModel)]="fieldConf.templateOptions.disable" (ngModelChange)="disableChange($event)"></nz-switch>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="18">选项：</div>
+      <div nz-col nzSpan="6">
+        <span style="color: #0db3a6;cursor: pointer;" (click)="addOpts()">添加选项</span>
+      </div>
+      <div nz-col nzSpan="24">
+        <div class="opt-wraper" *ngFor="let item of fieldConf.templateOptions.options">
+          <nz-input-group nzAddOnBefore="label:">
+            <input type="text" nz-input [(ngModel)]="item.label" />
+          </nz-input-group>
+          <nz-input-group nzAddOnBefore="value:">
+            <input type="text" nz-input [(ngModel)]="item.value" />
+          </nz-input-group>
+          <i nz-icon nzType="delete" nzTheme="outline" style="width: 50px;" class="del-icon" (click)="removeOpt(item)"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">数据联动：</div>
+      <div nz-col nzSpan="14">
+        <button nz-button nzType="default" style="width: 100%;" (click)="editJS()">脚本编辑</button>
+      </div>
+    </div>
+  </div>
+
+</div>

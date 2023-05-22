@@ -1,0 +1,53 @@
+<div class="config">
+  <layout-config [layoutConfig]="fieldConf"></layout-config>
+  <label-config [labelConfig]="fieldConf"></label-config>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段标识：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="text" nz-input [ngModel]="fieldConf.customKey"  (ngModelChange)="customKeyChange($event)" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="12">子字段：</div>
+      <div nz-col nzSpan="12" style="position: relative;">
+        <div 
+          style="color: #0db3a6;cursor: pointer; float: right;" 
+          nz-popover
+          nzPopoverTitle=""
+          [(nzPopoverVisible)]="isadd"
+          nzPopoverTrigger="click"
+          [nzPopoverContent]="contentTemplate"
+          nzPopoverPlacement="bottomRight"
+          (click)="isadd = true;">添加选项</div>
+        <ng-template #contentTemplate>
+          <ng-container *ngFor="let item of fieldType">
+            <div (click)="addField(item)" class="field-opt">{{ item.label }}</div>
+          </ng-container>
+        </ng-template>
+      </div>
+      <div class="list-group" nz-col nzSpan="24" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div class="opt-wraper" cdkDrag *ngFor="let item of fieldConf.templateOptions.items;let i = index">
+          <div nz-col nzSpan="21" class="sub-field" (click)="editSubField(item)">{{ item.label.name }}</div>
+          <div nz-col nzSpan="2" class="del-icon">
+            <i nz-icon nzType="delete" nzTheme="outline" style="width: 50px;"  (click)="removeOpt(i)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">数据联动：</div>
+      <div nz-col nzSpan="14">
+        <button nz-button nzType="default" style="width: 100%;" (click)="editJS()">脚本编辑</button>
+      </div>
+    </div>
+  </div>
+
+</div>

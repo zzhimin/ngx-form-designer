@@ -1,0 +1,14 @@
+<div class="form-verification">
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="7">不满足校验条件时提示文字：</div>
+      <div nz-col nzSpan="17">
+        <input type="text" nz-input [(ngModel)]="tipsText" />
+      </div>
+    </div>
+  </div>
+  <nz-divider></nz-divider>
+  <div>{{ text }} {{ '{' }}</div>
+  <div #javascriptInput style="width: 100%;height: 100%;min-width: 500px;min-height: 500px;border: 1px solid #D7D2CC;"></div>
+  <div>{{ '}' }}</div>
+</div>

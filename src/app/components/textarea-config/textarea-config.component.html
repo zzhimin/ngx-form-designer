@@ -1,0 +1,58 @@
+<div class="input-config">
+  <layout-config [layoutConfig]="inputConf"></layout-config>
+  <label-config [labelConfig]="inputConf"></label-config>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段标识：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="text" nz-input [ngModel]="inputConf.customKey"  (ngModelChange)="customKeyChange($event)" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;" *ngIf="isSub">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">字段宽度：</div>
+      <div nz-col nzSpan="18">
+        <input #inputRef type="number" nz-input [(ngModel)]="inputConf.subWidth" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">禁用：</div>
+      <div nz-col nzSpan="18">
+        <nz-switch [(ngModel)]="inputConf.templateOptions.disable"></nz-switch>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">最小行数：</div>
+      <div nz-col nzSpan="6">
+        <nz-input-number [(ngModel)]="inputConf.templateOptions.minRows" [nzMin]="1" [nzMax]="24" [nzStep]="1"></nz-input-number>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">最大行数：</div>
+      <div nz-col nzSpan="6">
+        <nz-input-number [(ngModel)]="inputConf.templateOptions.maxRows" [nzMin]="1" [nzMax]="24" [nzStep]="1"></nz-input-number>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="6">输入提示：</div>
+      <div nz-col nzSpan="18">
+        <input type="text" nz-input [(ngModel)]="inputConf.templateOptions.placeholder" />
+      </div>
+    </div>
+  </div>
+</div>

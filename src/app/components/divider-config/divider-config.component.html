@@ -1,0 +1,43 @@
+<div class="config">
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="10">是否虚线：</div>
+      <div nz-col nzSpan="14">
+        <nz-switch [(ngModel)]="fieldConf.templateOptions.isDashed"></nz-switch>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="10">中间文字：</div>
+      <div nz-col nzSpan="14">
+        <input type="text" nz-input [(ngModel)]="fieldConf.templateOptions.text" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="10">普通正文样式：</div>
+      <div nz-col nzSpan="14">
+        <nz-switch [(ngModel)]="fieldConf.templateOptions.plain"></nz-switch>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0;">
+    <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+      <div nz-col nzSpan="10">中间文字方向：</div>
+      <div nz-col nzSpan="14">
+        <nz-select [(ngModel)]="fieldConf.templateOptions.orientation" style="width: 100%;">
+          <nz-option nzValue="left" nzLabel="左边"></nz-option>
+          <nz-option nzValue="center" nzLabel="中间"></nz-option>
+          <nz-option nzValue="right" nzLabel="右边"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </div>
+
+</div>

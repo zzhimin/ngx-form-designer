@@ -1,0 +1,13 @@
+:host {
+  .config {
+    .opt-wraper {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      .del-icon:hover {
+        color: red;
+        cursor: pointer;
+      }
+    }
+  }
+}

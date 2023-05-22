@@ -1,0 +1,16 @@
+<form nz-form [formGroup]="form">
+  <nz-form-item>
+    <nz-form-label 
+      [nzSm]="field.label.layout" 
+      [nzXs]="24" 
+      [nzFor]="field.key" 
+      [nzRequired]="field.label.require"
+      [nzNoColon]="field.label.isColon"
+      >{{field.label.name}}</nz-form-label>
+    <nz-form-control [nzSm]="field.control.layout" [nzXs]="24">
+      
+      <image-upload [formControlName]="field.customKey || field.key" [field]="field"></image-upload>
+
+    </nz-form-control>
+  </nz-form-item>
+</form>

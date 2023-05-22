@@ -1,0 +1,15 @@
+<form nz-form [formGroup]="form">
+  <nz-form-item>
+    <nz-form-label 
+      [nzSm]="field.label.layout" 
+      [nzXs]="24" 
+      [nzFor]="field.key" 
+      [nzNoColon]="field.label.isColon"
+      >{{field.label.name}}</nz-form-label>
+    <nz-form-control [nzSm]="field.control.layout" [nzXs]="24">
+      
+      <div>{{ field.templateOptions.content }}</div>
+
+    </nz-form-control>
+  </nz-form-item>
+</form>

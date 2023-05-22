@@ -1,0 +1,154 @@
+@import "~src/styles";
+.active-field {
+  border: 1px dashed $primaryColor !important;
+}
+:host {
+  box-sizing: border-box;
+  .designer-wraper {
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f4f7;
+    .title {
+      width: 100%;
+      height: $title;
+      background-color: #263238;
+      color: #fff;
+      padding: 0 10px;
+      @include flex(space-between);
+      &-left {
+        font-size: 20px;
+        font-weight: bold;
+        height: 100%;
+        color: #fff;
+        width: 200px;
+        @include flex(center);
+      }
+      &-middle {
+        color: #fff;
+        width: 400px;
+        @include flex(space-around);
+      }
+      &-right {
+        [nz-button] {
+          margin-right: 8px;
+        }
+      }
+    }
+    .content {
+      display: flex;
+      height: calc(100% - $title);
+      .left {
+        @include contentStyle(250px);
+        padding: 20px 10px;
+        .field-wraper {
+          margin-bottom: 10px;
+          .desc {
+            height: 30px;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          .list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .field {
+              height: 30px;
+              width: 105px;
+              margin: 5px;
+              border-radius: 5px;
+              border: 1px solid #D7D2CC;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              &:hover {
+                cursor: pointer;
+                color: $primaryColor;
+                border: 1px dashed $primaryColor;
+              }
+            }
+          }
+        }
+      }
+      .middle {
+        flex: 1;
+        margin: 10px;
+        background-color: #fff;
+        padding: 5px;
+        box-sizing: border-box;
+        .form-name {
+          width: 100%;
+          min-height: 40px;
+          text-align: center;
+          margin: 0 auto 20px;
+          font-size: 32px;
+        }
+        .form-content {
+          overflow: auto;
+          height: calc(100% - 100px);
+          border:1px solid $primaryBorder;
+          padding: 5px;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          .list-group-item {
+            position: relative;
+            border: 1px solid transparent;
+            .del {
+              position: absolute;
+              top: 2px;
+              right: 5px;
+              z-index: 10;
+              cursor: pointer;
+              &:hover {
+                i {
+                  color: red;
+                }
+              }
+            }
+            &:hover {
+              border: 1px dashed $primaryColor;
+            }
+          }
+
+        }
+      }
+      .right {
+        overflow: auto;
+        @include contentStyle(300px);
+      }
+    }
+  }
+}
+
+// 拖拽时显示的占位符元素，而不是实际的元素
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+// 从动画的位置到最终把它放在列表的位置上时的动画
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+// 拖动元素时，看到的预览元素
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  .del {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+  }
+}
+
+// 拖动元素时，其他元素改变位置看到的动画
+.list-group.cdk-drop-list-dragging .list-group-item:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

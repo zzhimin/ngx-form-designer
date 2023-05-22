@@ -1,0 +1,9 @@
+<form nz-form [formGroup]="validateForm">
+  <textarea  
+    nz-input 
+    formControlName="value" 
+    [attr.id]="field.customKey || field.key" 
+    [placeholder]="field.templateOptions.placeholder"
+    [nzAutosize]="{ minRows: field.templateOptions.minRows, maxRows: field.templateOptions.maxRows }"
+  ></textarea>
+</form>

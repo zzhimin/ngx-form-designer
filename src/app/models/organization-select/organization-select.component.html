@@ -1,0 +1,8 @@
+<form nz-form [formGroup]="validateForm">
+  <nz-tree-select
+    [nzNodes]="nodes"
+    nzShowSearch
+    nzPlaceHolder="请选择组织"
+    formControlName="org"
+  ></nz-tree-select>
+</form>

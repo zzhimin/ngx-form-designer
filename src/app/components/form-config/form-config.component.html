@@ -1,0 +1,98 @@
+<div class="form-config">
+  <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+    <div nz-col nzSpan="24">
+      <nz-input-group nzAddOnBefore="表单名称:">
+        <input type="text" nz-input [(ngModel)]="formConf.name" (ngModelChange)="formConf.change($event, 'name')" />
+      </nz-input-group>
+    </div>
+  </div>
+  <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+    <div nz-col nzSpan="24">
+      <nz-input-group nzAddOnBefore="表单名称高度:">
+        <nz-input-number [(ngModel)]="formConf.nameHeight" [nzMin]="40" [nzMax]="200" [nzStep]="5" (ngModelChange)="formConf.change($event, 'nameHeight')" style="width: 100%;"></nz-input-number>
+      </nz-input-group>
+    </div>
+  </div>
+  <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+    <div nz-col nzSpan="24">
+      <nz-input-group nzAddOnBefore="表单宽度:" [nzAddOnAfter]="formWidthTemp">
+        <input type="number" nz-input [(ngModel)]="formConf.width" (ngModelChange)="formConf.widthChange()" />
+      </nz-input-group>
+      <ng-template #formWidthTemp>
+        <nz-select [(ngModel)]="formConf.unit" (ngModelChange)="formConf.widthChange()">
+          <nz-option nzLabel="px" nzValue="px"></nz-option>
+          <nz-option nzLabel="%" nzValue="%"></nz-option>
+        </nz-select>
+      </ng-template>
+    </div>
+  </div>
+
+  <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+    <div nz-col nzSpan="24">
+      <nz-input-group nzAddOnBefore="表单id:">
+        <input type="text" nz-input [(ngModel)]="formConf.id" (ngModelChange)="formConf.change($event, 'id')" />
+      </nz-input-group>
+    </div>
+  </div>
+  <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+    <div nz-col nzSpan="24">
+      <nz-input-group nzAddOnBefore="表单key:">
+        <input type="text" nz-input [(ngModel)]="formConf.key" (ngModelChange)="formConf.change($event, 'key')" />
+      </nz-input-group>
+    </div>
+  </div>
+
+  <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+    <div nz-col nzSpan="24">
+      <nz-input-group nzAddOnBefore="表单宽度:">
+        <nz-select [(ngModel)]="formConf.layout" (ngModelChange)="formConf.change($event, 'layout')" style="width: 100%;">
+          <nz-option nzLabel="水平布局" nzValue="horizontal"></nz-option>
+          <nz-option nzLabel="垂直布局" nzValue="vertical"></nz-option>
+        </nz-select>
+      </nz-input-group>
+    </div>
+  </div>
+
+  <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+    <div nz-col nzSpan="24">
+      <nz-input-group nzAddOnBefore="表单背景:">
+        <input type="text" nz-input [(ngModel)]="formConf.background" (ngModelChange)="formConf.change($event, 'background')" />
+      </nz-input-group>
+    </div>
+  </div>
+
+  <div style="color: #6D6875; margin-top: 10px;">控件水平间距和垂直间距</div>
+  <div nz-row nzAlign="middle" [nzGutter]="[16, 16]">
+    <div nz-col nzSpan="12">
+      <nz-input-group nzAddOnBefore="水平:">
+        <nz-input-number  
+          (ngModelChange)="formConf.gutterChange()"
+          [(ngModel)]="formConf.horizontal" [nzMin]="1" [nzMax]="100" [nzStep]="1" 
+        ></nz-input-number>
+      </nz-input-group>
+    </div>
+    <div nz-col nzSpan="12">
+      <nz-input-group nzAddOnBefore="垂直:">
+        <nz-input-number 
+          (ngModelChange)="formConf.gutterChange()"
+          [(ngModel)]="formConf.vertical" [nzMin]="1" [nzMax]="100" [nzStep]="1" 
+        ></nz-input-number>
+      </nz-input-group>
+    </div>
+  </div>
+
+  <div nz-row nzAlign="middle" [nzGutter]="[0, 16]">
+    <div nz-col nzSpan="9">表单提交校验
+      <i 
+        nz-icon 
+        nzType="question-circle" 
+        nzTheme="twotone"
+        nz-tooltip 
+        nzTooltipTitle="用于配置表单提交时的验证规则"
+        ></i>
+    </div>
+    <div nz-col nzSpan="15">
+      <button nz-button nzType="default" style="width: 100%;" (click)="addCondition()">添加校验条件</button>
+    </div>
+  </div>
+</div>

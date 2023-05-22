@@ -1,0 +1,24 @@
+
+<ng-container [ngSwitch]="field.templateOptions.type">
+  <ng-container *ngSwitchCase="'time'">
+    <nz-date-picker 
+      [(ngModel)]="selectTime" 
+      (ngModelChange)="onChange($event)"
+      [nzMode]="field.templateOptions.mode"
+      [nzSize]="field.templateOptions.size"
+      [nzShowTime]="field.templateOptions.showTime"
+      [nzDisabledDate]="disabledDate"
+    ></nz-date-picker>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'range'">
+    <nz-range-picker 
+      [(ngModel)]="selectTime" 
+      (ngModelChange)="onChange($event)"
+      [nzMode]="field.templateOptions.mode"
+      [nzSize]="field.templateOptions.size"
+      [nzShowTime]="field.templateOptions.showTime"
+      [nzDisabledDate]="disabledDate"
+    ></nz-range-picker>
+  </ng-container>
+</ng-container>

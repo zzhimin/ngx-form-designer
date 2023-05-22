@@ -1,0 +1,9 @@
+<nz-upload 
+  nzType="drag" 
+  [nzMultiple]="true" 
+  nzFileType="image/png,image/jpeg,image/gif,image/bmp"
+  [nzAction]="field.templateOptions.uploadUrl"
+  (nzChange)="handleChange($event)"
+>
+  <p class="upload-desc"><i nz-icon nzType="file-image" nzTheme="twotone"></i> 选择或拖拽上传图片</p>
+</nz-upload>

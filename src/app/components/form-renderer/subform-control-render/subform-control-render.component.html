@@ -1,0 +1,88 @@
+<form nz-form [formGroup]="form">
+  <nz-form-item style="display: block;">
+    <nz-form-label 
+      style="text-align: start;"
+      [nzSm]="field.label.layout" 
+      [nzXs]="24" 
+      [nzFor]="field.key" 
+      [nzRequired]="field.label.require"
+      [nzNoColon]="field.label.isColon"
+      >{{field.label.name}}</nz-form-label>
+    <nz-form-control [nzSm]="field.control.layout" [nzXs]="24">
+      <div 
+        class="table-wraper" 
+        [formArrayName]="field.key" 
+      >
+        <nz-table
+          #subTableData
+          nzBordered 
+          nzSize="small"
+          [nzData]="subFormContent.value"
+          [nzShowPagination]="false"
+        >
+          <thead>
+              <tr>
+                <th nzWidth="45px">序号</th>
+                <ng-container *ngFor="let item of field.templateOptions.items">
+                  <th [nzWidth]="item.subWidth + 'px'">{{ item.label.name }}</th>
+                </ng-container>
+              </tr>
+          </thead>
+          <tbody>
+            <!--动态添加项-->  
+            <tr 
+              *ngFor="let item of subFormContent.controls;let i = index" 
+              [formGroupName]="i" 
+              (mouseenter)="isDel = i;" (mouseleave)="isDel = -1;"
+            >
+              <td nzAlign="center">
+                <span [hidden]="isDel === i">{{i + 1}}</span>
+                <span 
+                  [hidden]="isDel !== i"
+                  class="del" 
+                  nz-popconfirm 
+                  nzPopconfirmTitle="确定删除该行数据?" 
+                  (nzOnConfirm)="removeColumn(i)">
+                  <i nz-icon nzType="delete" nzTheme="outline"></i>
+                </span>
+              </td>
+              <td *ngFor="let item of field.templateOptions.items">
+                <ng-container [ngSwitch]="item.templateOptions.key">
+                  <ng-container *ngSwitchCase="'input'">
+                    <basic-input [field]="item" [formControlName]="item.customKey || item.key"></basic-input>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'textarea'">
+                    <basic-textarea [field]="item" [formControlName]="item.customKey || item.key"></basic-textarea>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'radio'">
+                    <basic-radio [field]="item" [formControlName]="item.customKey || item.key"></basic-radio>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'switch'">
+                    <basic-switch [field]="item" [formControlName]="item.customKey || item.key"></basic-switch>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'select'">
+                    <basic-select [field]="item" [formControlName]="item.customKey || item.key"></basic-select>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'organization'">
+                    <bk-organization-select [formControlName]="item.customKey || item.key"></bk-organization-select>
+                  </ng-container>
+    
+                  <ng-container *ngSwitchCase="'dashboard-select'">
+                    <bk-dashboard-select [formControlName]="item.customKey || item.key"></bk-dashboard-select>
+                  </ng-container>
+                </ng-container>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+  <a nz-button nzType="link" (click)="addColumn()">添加</a>
+</form>

@@ -1,0 +1,11 @@
+:host {
+  nz-upload ::ng-deep {
+    .ant-upload.ant-upload-drag .ant-upload {
+      padding: 0;
+    }
+    .upload-desc {
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+}

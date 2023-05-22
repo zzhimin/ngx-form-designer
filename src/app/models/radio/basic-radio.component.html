@@ -1,0 +1,9 @@
+<form nz-form [formGroup]="validateForm">
+  <nz-radio-group 
+    formControlName="value"
+  >
+    <ng-container *ngFor="let opt of field.templateOptions.options">
+      <label nz-radio [nzValue]="opt.value">{{ opt.label }}</label>
+    </ng-container>
+  </nz-radio-group>
+</form>
