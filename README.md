@@ -1,2 +1,2 @@
 # ngx-form-designer
-基于Angular13 + ng-zorro的表单设计器
+Ngx Form Designer Based on Angular13 + NG ZORRO
